@@ -3,19 +3,16 @@
   "version": "1.0",
   "description": "Enjoy Clean Interface of Youtube.",
   "permissions": [
-  "*://*.youtube.com/*","tabs","storage"
+  "*://www.youtube.com/*","tabs","storage"
     ],
     "browser_action": {
         "default_popup": "popup.html",
     "default_title": "Youtube UI Controller",
     "browser_style":true
     },
-"background":{
-  "scripts":["background.js"]
-},
     "content_scripts": [
   {
-    "matches": ["*://*.youtube.com/*"],
+    "matches": ["*://www.youtube.com/*"],
     "js": ["logic.js"]
   }
 ],
