@@ -7,25 +7,36 @@ function Set() {
 function Error(error) {
   console.log(error);
 }
-
+document.addEventListener('DOMContentLoaded',function () {
+  setInterval(test,100);
+})
 async function main() {
   var p;
+  var lab=document.querySelector('label[for="main"]');
    await browser.storage.local.get("main_value",item=>{
     p=item.main_value;
     if(p===undefined){
      browser.storage.local.set({main_value:1})
             .then(Set,Error);
                 document.querySelector('#main').checked=true;
+                lab.textContent="ON";
+                lab.style.color="#3f8906";
     }
     else {
      browser.storage.local.remove(["main_value","title_value","videos_value","comments_value","search_value","description_value"]);
+     lab.textContent="OFF";
+     lab.style.color="#000";
          document.querySelector('#main').checked=false;
           document.querySelector('#title').checked=false;
            document.querySelector('#search').checked=false;
             document.querySelector('#description').checked=false;
              document.querySelector('#comments').checked=false;
               document.querySelector('#videos').checked=false;
-              titleblock();commentsblock();descriptionblock();searchblock();videoblock();
+              titleblock();
+              commentsblock();
+              descriptionblock();
+              searchblock();
+              videoblock();
     }
   });
 }
@@ -107,18 +118,28 @@ document.querySelector('#description').addEventListener('change',description);
 
 async function test(){
   var m;
+    var lab=document.querySelector('label[for="main"]');
   await browser.storage.local.get("main_value",item=>{
     m=item.main_value;
     if(m===undefined){
+      lab.textContent="OFF";
+      lab.style.color="#000";
         document.querySelector('#main').checked=false;
     document.querySelector('#search').disabled=true;
     document.querySelector('#title').disabled=true;
     document.querySelector('#description').disabled=true;
     document.querySelector('#videos').disabled=true;
     document.querySelector('#comments').disabled=true;
+    titleblock();
+    commentsblock();
+    descriptionblock();
+    searchblock();
+    videoblock();
 
 }
 else {
+  lab.textContent="ON";
+  lab.style.color="#3f8906";
     document.querySelector('#main').checked=true;
   document.querySelector('#title').disabled=false;
 document.querySelector('#search').disabled=false;
@@ -185,7 +206,6 @@ document.querySelector('#comments').disabled=false;
 });
 }
 
-setInterval(test,100);
 
 async function videonone(){
   const code="document.querySelector('#secondary').style.display='none'";

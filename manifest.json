@@ -1,7 +1,7 @@
 {
   "name": "Youtube UI Controller",
   "version": "1.0",
-  "description": "Enjoy Clean Interface of Youtube.",
+  "description": "A simple UI controller for Youtube focused on displaying the video you want.",
   "permissions": [
   "*://www.youtube.com/*","tabs","storage"
     ],
