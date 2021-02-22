@@ -15,13 +15,17 @@ async function main() {
     if(p===undefined){
      browser.storage.local.set({main_value:1})
             .then(Set,Error);
-          document.querySelector('#search').disabled=false;
-          document.querySelector('#title').disabled=false;
+                document.querySelector('#main').checked=true;
     }
     else {
-     browser.storage.local.remove(["main_value"]);
-     document.querySelector('#search').disabled=true;
-           document.querySelector('#title').disabled=true;
+     browser.storage.local.remove(["main_value","title_value","videos_value","comments_value","search_value","description_value"]);
+         document.querySelector('#main').checked=false;
+          document.querySelector('#title').checked=false;
+           document.querySelector('#search').checked=false;
+            document.querySelector('#description').checked=false;
+             document.querySelector('#comments').checked=false;
+              document.querySelector('#videos').checked=false;
+              titleblock();commentsblock();descriptionblock();searchblock();videoblock();
     }
   });
 }
@@ -101,28 +105,82 @@ document.querySelector('#comments').addEventListener('change',comments);
 document.querySelector('#description').addEventListener('change',description);
 
 
-function test(){
-  var p,register=null;
-    browser.storage.local.get("main_value",item=>{
-    p=item.main_value;
-    if(p===undefined){
-      searchblock();
-      videoblock();
-      descriptionblock();  titleblock();
-      commentsblock();
-         document.querySelector('#main').checked=false;
-      document.querySelector('#search').disabled=true;
-      document.querySelector('#title').disabled=true;
+async function test(){
+  var m;
+  await browser.storage.local.get("main_value",item=>{
+    m=item.main_value;
+    if(m===undefined){
+        document.querySelector('#main').checked=false;
+    document.querySelector('#search').disabled=true;
+    document.querySelector('#title').disabled=true;
+    document.querySelector('#description').disabled=true;
+    document.querySelector('#videos').disabled=true;
+    document.querySelector('#comments').disabled=true;
 
 }
 else {
-searchnone();
-videonone();
-descriptionnone();titlenone();
-commentsnone();
-   document.querySelector('#main').checked=true;
- document.querySelector('#search').disabled=false;
+    document.querySelector('#main').checked=true;
   document.querySelector('#title').disabled=false;
+document.querySelector('#search').disabled=false;
+document.querySelector('#description').disabled=false;
+document.querySelector('#videos').disabled=false;
+document.querySelector('#comments').disabled=false;
+  var t,c,s,v,d;
+  browser.storage.local.get("title_value",item=>{
+    t=item.title_value;
+    if(t===undefined){
+      titleblock();
+  document.querySelector('#title').checked=false;
+    }
+    else{
+      titlenone();
+        document.querySelector('#title').checked=true;
+    }
+  });
+  browser.storage.local.get("comments_value",item=>{
+    c=item.comments_value;
+    if(c===undefined){
+      commentsblock();
+  document.querySelector('#comments').checked=false;
+    }
+    else{
+      commentsnone();
+        document.querySelector('#comments').checked=true;
+    }
+  });
+  browser.storage.local.get("search_value",item=>{
+    s=item.search_value;
+    if(s===undefined){
+      searchblock();
+  document.querySelector('#search').checked=false;
+    }
+    else{
+      searchnone();
+        document.querySelector('#search').checked=true;
+    }
+  });
+  browser.storage.local.get("videos_value",item=>{
+    v=item.videos_value;
+    if(v===undefined){
+      videoblock();
+  document.querySelector('#videos').checked=false;
+    }
+    else{
+      videonone();
+        document.querySelector('#videos').checked=true;
+    }
+  });
+  browser.storage.local.get("description_value",item=>{
+    d=item.description_value;
+    if(d===undefined){
+      descriptionblock();
+  document.querySelector('#description').checked=false;
+    }
+    else{
+    descriptionnone();
+        document.querySelector('#description').checked=true;
+    }
+  });
 }
 });
 }
