@@ -1,13 +1,37 @@
 main{
-  display: flex
-  width:400px;
-  height: 400px;
-  align-items: center;
-  justify-content: center;
+  margin: 10px;
+  width:300px;
+  height: 500px;
+  background-color: #0001ff0d;
 }
 label{
-  display: block;
-  margin: 20px;
+  margin:15px;
+}
+label[for]{
+  font-size: 20px;
+  text-align: center;
+}
+td{
+  text-align:center;
+}
+table{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  margin: 0 auto;
+}
+header{
+  display: flex;
+ align-items: center;
+}
+img{
+    margin: 15px;
+    border-radius: 5px;
+}
+.name{
+  font-size: 20px;
+  color: #ff0023;
 }
 .switch {
   position: relative;

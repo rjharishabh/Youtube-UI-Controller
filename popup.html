@@ -9,20 +9,57 @@
   </head>
   <body>
     <main>
-      <label class="switch">
+<header>
+  <img src="img/icon48.jpg" alt="logo">
+  <span class="name">Youtube UI Controller</span>
+</header>
+
+<table>
+  <tr>
+    <th><label for="main">OFF</label></th>
+    <th><label class="switch">
       <input type="checkbox" id="main">
       <span class="slider"></span>
-      </label>
-      <label class="switch">
-      <input type="checkbox" id="search" disabled="true">
+      </label></th>
+  </tr>
+  <tr>
+    <td><label for="title">Title</label></td>
+    <td><label class="switch">
+        <input type="checkbox" id="title" disabled="true">
+        <span class="slider"></span>
+        </label></td>
+  </tr>
+  <tr>
+    <td><label for="videos">Videos</label></td>
+    <td>  <label class="switch">
+      <input type="checkbox" id="videos" disabled="true">
       <span class="slider"></span>
-      </label>
-      <label class="switch">
-      <input type="checkbox" id="title" disabled="true">
+      </label></td>
+  </tr>
+  <tr>
+    <td><label for="comments">Comments</label></td>
+    <td>  <label class="switch">
+      <input type="checkbox" id="comments" disabled="true">
       <span class="slider"></span>
-      </label>
-    </main>
+      </label></td>
+  </tr>
+  <tr>
+    <td><label for="search">Search Box</label></td>
+    <td><label class="switch">
+        <input type="checkbox" id="search" disabled="true">
+        <span class="slider"></span>
+        </label></td>
+  </tr>
+  <tr>
+    <td><label for="desc">Description</label></td>
+    <td><label class="switch">
+        <input type="checkbox" id="desc" disabled="true">
+        <span class="slider"></span>
+        </label></td>
+  </tr>
+</table>
 
+    </main>
     <script src="logic.js"></script>
   </body>
 </html>

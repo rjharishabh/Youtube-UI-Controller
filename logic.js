@@ -48,16 +48,16 @@ scr();
 });
 }
 
-setInterval(test,500);
+setInterval(test,200);
 
 async function scr(){
-  const code="document.body.style.display = 'none'";
+  const code="document.querySelector('#secondary').style.display='none'";
 await browser.tabs.executeScript({
   code: code
 });
 }
 async function cr(){
-  const code="document.body.style.display = 'block'";
+  const code="document.querySelector('#secondary').style.display='block'";
 await browser.tabs.executeScript({
   code: code
 });
