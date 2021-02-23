@@ -1,0 +1,35 @@
+{
+  "name": "Youtube UI Controller",
+  "version": "1.0",
+  "description": "A simple UI controller for Youtube focused on displaying the video you want.",
+  "permissions": [
+  "*://www.youtube.com/*","tabs","storage"
+    ],
+    "browser_action": {
+      "default_popup": "popup.html",
+    "default_title": "Youtube UI Controller",
+    "browser_style":true
+    },
+    "background":{
+      "scripts":["background.js"],
+      "persistent":true
+    },
+    "content_scripts": [
+  {
+    "matches": ["*://www.youtube.com/*"],
+    "js": ["logic.js"]
+  }
+],
+  "manifest_version": 2,
+  "author":"Rishabh Ranjan Jha",
+  "browser_specific_settings": {
+  "gecko": {
+    "id": "youtube-ui-controller@rishabh-ranjan-jha"
+  }
+},
+"icons": {
+  "48": "img/icon48.jpg",
+  "96": "img/icon96.jpg"
+}
+
+}

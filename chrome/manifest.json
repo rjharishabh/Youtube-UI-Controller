@@ -1,0 +1,36 @@
+{
+  "name": "YouTube UI Controller",
+  "version": "1.0",
+  "description": "A simple UI controller for YouTube focused on displaying the video you want.",
+  "permissions": [
+  "*://www.youtube.com/*","tabs","storage"
+    ],
+    "browser_action": {
+     "default_popup": "popup.html",
+     "default_icon": {
+       "16": "img/icon16.png",
+       "32": "img/icon32.png",
+       "48": "img/icon48.png",
+       "128": "img/icon128.png"
+     }
+   },
+    "background":{
+      "scripts":["background.js"],
+      "persistent":false
+    },
+    "content_scripts": [
+  {
+    "matches": ["*://www.youtube.com/*"],
+    "js": ["logic.js"]
+  }
+],
+  "author":"Rishabh Ranjan Jha",
+  "icons": {
+    "16": "img/icon16.png",
+    "32": "img/icon32.png",
+    "48": "img/icon48.png",
+    "128": "img/icon128.png"
+ },
+   "manifest_version": 2
+
+}
