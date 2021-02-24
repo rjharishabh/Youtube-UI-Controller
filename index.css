@@ -1,0 +1,52 @@
+main{
+  padding-bottom: 20px;
+  margin:20px;
+  background-color: #0001ff0d;
+}
+img[alt="logo"]{
+  width:10vw;
+}
+img[alt="firefox-addon-image"]{
+  width:20vw;
+}
+
+p{
+  font-size: 2rem;
+margin-left:10px;
+margin-right:10px;
+}
+header{
+  display: flex;
+  align-items: center;
+  margin: 20px;
+justify-content: center;
+}
+video{
+display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+width: 70vw;
+border: 2px black solid;
+}
+a{
+  text-decoration: none;
+}
+img{
+  margin: 10px;
+  display: inline-block;
+  width: 40vw;
+  border-radius: 5px;
+}
+.resources{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+}
+footer p{
+  color: blue;
+    font-size: 2rem;
+text-align:center;
+}
